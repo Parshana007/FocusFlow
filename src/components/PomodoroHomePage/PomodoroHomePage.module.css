@@ -1,0 +1,105 @@
+.root {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #000;
+  overflow: hidden;
+}
+.pomodoro {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 19px;
+  top: 88px;
+  width: 169px;
+  height: 40px;
+  flex-direction: column;
+}
+.plus {
+  position: absolute;
+  left: 352px;
+  top: 55px;
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.edit {
+  color: #ff9f09;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 16px;
+  top: 54px;
+  width: 35px;
+  height: 18px;
+  flex-direction: column;
+}
+.ellipse3 {
+  position: absolute;
+  left: 290px;
+  top: 272px;
+  width: 78px;
+  height: 78px;
+  overflow: visible;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.start {
+  color: #31d159;
+  font-size: 16px;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 311px;
+  top: 304px;
+  width: 36px;
+  height: 14px;
+  flex-direction: column;
+}
+.ellipse32 {
+  position: absolute;
+  left: 19px;
+  top: 272px;
+  width: 78px;
+  height: 78px;
+  overflow: visible;
+}
+.icon3 {
+  width: 100%;
+  height: 100%;
+}
+.reset {
+  color: #fff;
+  font-size: 16px;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 38px;
+  top: 304px;
+  width: 40px;
+  height: 14px;
+  flex-direction: column;
+}
+.rectangle23 {
+  position: absolute;
+  left: 15px;
+  top: 200px;
+  width: 353px;
+  max-width: 100%;
+  height: 1px;
+  max-height: 100%;
+  background-color: #747474;
+}
