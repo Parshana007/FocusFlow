@@ -1,0 +1,135 @@
+.root {
+  position: absolute;
+  right: 21px;
+  top: calc(50% - -371px);
+  width: 351px;
+  height: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateY(-50%);
+}
+.worldClock {
+  color: #757575;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 0;
+  right: 81.7664%;
+  top: 70%;
+  bottom: 0;
+  flex-direction: column;
+}
+.alarms {
+  color: #757575;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 25.0712%;
+  right: 62.963%;
+  top: 70%;
+  bottom: 0;
+  flex-direction: column;
+}
+.stopwatch {
+  color: #757575;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 45.0142%;
+  right: 39.0313%;
+  top: 70%;
+  bottom: 0;
+  flex-direction: column;
+}
+.timers {
+  color: #757575;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 68.3761%;
+  right: 18.2336%;
+  top: 70%;
+  bottom: 0;
+  flex-direction: column;
+}
+.pomodoro {
+  color: #ff9f09;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: Aleo, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 87.7493%;
+  right: -2.849%;
+  top: 70%;
+  bottom: 0;
+  flex-direction: column;
+}
+.vector {
+  position: absolute;
+  left: 4.3464%;
+  right: 89.3372%;
+  top: 0;
+  bottom: 45%;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.group3 {
+  position: absolute;
+  left: 170px;
+  top: 0;
+  width: 21.1628px;
+  height: 22.93px;
+  overflow: visible;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.group2 {
+  position: absolute;
+  left: 93.8605px;
+  top: 1px;
+  width: 20.3886px;
+  height: 22px;
+  overflow: visible;
+}
+.icon3 {
+  width: 100%;
+  height: 100%;
+}
+.group4 {
+  position: absolute;
+  left: 244px;
+  top: 2px;
+  width: 21.1629px;
+  height: 20.9972px;
+  overflow: visible;
+}
+.icon4 {
+  width: 100%;
+  height: 100%;
+}
+.group {
+  position: absolute;
+  left: 317px;
+  top: 24px;
+  width: 24.0177px;
+  height: 24px;
+  overflow: visible;
+}
+.icon5 {
+  width: 100%;
+  height: 100%;
+}
