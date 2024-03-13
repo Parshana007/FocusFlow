@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import type { FC } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import resets from '../_resets.module.css';
 import classes from './EditShortBreakPage.module.css';
 import { Ellipse5Icon } from './Ellipse5Icon.js';
@@ -8,8 +8,27 @@ import { Ellipse5Icon } from './Ellipse5Icon.js';
 interface Props {
   className?: string;
 }
-/* @figmaId 148:1539 */
+
 export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(props = {}) {
+  // State to hold the value of the input field
+  const [shortBreak, setShortBreak] = useState('');
+
+  // useEffect to retrieve data from localStorage on component mount
+  useEffect(() => {
+    const secondTime = JSON.parse(localStorage.getItem('second_time') || '""');
+    setShortBreak(secondTime);
+  }, []);
+
+  // Event handler to update the state when the input value changes
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setShortBreak(event.target.value);
+  };
+
+  // Function to save the input value into localStorage
+  const saveShortBreak = () => {
+    localStorage.setItem('second_time', JSON.stringify(shortBreak));
+  };
+
   return (
     <div className={`${resets.clapyResets} ${classes.root}`}>
       <div className={classes.rectangle17}></div>
@@ -19,7 +38,7 @@ export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(pr
         </button>
       </Link>
       <Link to="/">
-        <button>
+        <button onClick={saveShortBreak}>
           <div className={classes.save}>Save</div>
         </button>
       </Link>
@@ -62,7 +81,13 @@ export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(pr
         <Ellipse5Icon className={classes.icon} />
       </div>
       <div className={classes.label7}>Label</div>
-      <div className={classes.shortBreak}>Short Break</div>
+      <input
+        type="text"
+        placeholder="ShortBreak"
+        className={classes.shortBreak}
+        value={shortBreak}
+        onChange={handleInputChange}
+      />
       <div className={classes.image1}></div>
       <div className={classes.rectangle23}></div>
       <div className={classes.rectangle24}></div>
