@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import resets from "../_resets.module.css";
@@ -12,6 +12,19 @@ interface Props {
 export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
   props = {}
 ) {
+  // State to hold the value of the input field
+  const [workTime, setWorkTime] = useState("");
+
+  // Event handler to update the state when the input value changes
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setWorkTime(event.target.value);
+  };
+
+  // Function to save the input value into localStorage
+  const saveWorkTime = () => {
+    localStorage.setItem('first_time', JSON.stringify(workTime));
+  };
+
   return (
     <div className={`${resets.clapyResets} ${classes.root}`}>
       <div className={classes.rectangle17}></div>
@@ -21,7 +34,7 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
         </button>
       </Link>
       <Link to="/">
-        <button>
+        <button onClick={saveWorkTime}>
           <div className={classes.save}>Save</div>
         </button>
       </Link>
@@ -35,7 +48,13 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
       <div className={classes.autoStart}>Auto Start</div>
       <div className={classes.totalIntervals}>Total Intervals</div>
       <div className={classes.label}>Label</div>
-      <div className={classes.workTime}>Work Time</div>
+      <input
+        type="text"
+        placeholder="WorkTime"
+        className={classes.workTime}
+        value={workTime}
+        onChange={handleInputChange}
+      />
       <div className={classes.editWorkTime}>Edit Work Time</div>
       <div className={classes.rectangle18}></div>
       <div className={classes.ellipse4}>
