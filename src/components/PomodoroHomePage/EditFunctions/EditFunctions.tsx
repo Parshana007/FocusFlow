@@ -1,25 +1,44 @@
-import { memo } from 'react';
-import type { FC } from 'react';
+import { memo, useEffect, useState } from "react";
+import type { FC } from "react";
+import { Link } from "react-router-dom";
 
-import resets from '../../_resets.module.css';
-import classes from './EditFunctions.module.css';
+import resets from "../../_resets.module.css";
+import classes from "./EditFunctions.module.css";
 
 interface Props {
   className?: string;
 }
-/* @figmaId 67:170 */
-export const EditFunctions: FC<Props> = memo(function EditFunctions(props = {}) {
+
+export const EditFunctions: FC<Props> = memo(function EditFunctions(
+  props = {}
+) {
+  // State to hold the values retrieved from localStorage
+  const [firstTime, setFirstTime] = useState("Work Time");
+  const [secondTime, setSecondTime] = useState("Short Break");
+
+  // useEffect to retrieve data from localStorage on component mount
+  useEffect(() => {
+    const first = JSON.parse(localStorage.getItem('first_time') || '""');
+    const second = JSON.parse(localStorage.getItem('second_time') || '""');
+    setFirstTime(first || "Work Time");
+    setSecondTime(second || "Short Break");
+  }, []);
+
   return (
     <div className={`${resets.clapyResets} ${classes.root}`}>
       <div className={classes.rectangle16}></div>
-      <div className={classes.workTime}>Work Time</div>
-      <div className={classes._30Min}>30 min</div>
-      <div className={classes._5Min}>5 min</div>
-      <div className={classes.breakTime}>Break Time</div>
-      <div className={classes.line10}></div>
-      <div className={classes.line11}></div>
-      <div className={classes.line102}></div>
-      <div className={classes.line112}></div>
+      <Link to="/edit-work-time">
+        <button>
+          <div className={classes.workTime}>{firstTime}</div>
+          <div className={classes._30Min}>30 min</div>
+        </button>
+      </Link>
+      <Link to="/edit-short-break">
+        <button>
+          <div className={classes._5Min}>5 min</div>
+          <div className={classes.breakTime}>{secondTime}</div>
+        </button>
+      </Link>
     </div>
   );
 });
