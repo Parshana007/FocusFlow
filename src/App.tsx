@@ -6,7 +6,7 @@ import resets from "./components/_resets.module.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PomodoroHomePage } from "./components/PomodoroHomePage/PomodoroHomePage.js";
 import { EditWorkTimePage } from "./components/EditWorkTimePage/EditWorkTimePage.js";
-import { EditShortBreakPage } from "./components/EditShortBreakPage/EditShortBreakPage.js"
+import { EditShortBreakPage } from "./components/EditShortBreakPage/EditShortBreakPage.js";
 
 interface Props {
   className?: string;
