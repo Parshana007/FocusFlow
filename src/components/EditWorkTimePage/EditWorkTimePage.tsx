@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import resets from "../_resets.module.css";
@@ -14,15 +14,28 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
 ) {
   // State to hold the value of the input field
   const [workTime, setWorkTime] = useState("");
+  const [interval, setInterval] = useState("");
+
+  useEffect(() => {
+    const first = JSON.parse(localStorage.getItem('first_time') || '""');
+    const interval = JSON.parse(localStorage.getItem('interval_count') || '""');
+    setWorkTime(first || "Work Time");
+    setInterval(interval || "10")
+  }, []);
 
   // Event handler to update the state when the input value changes
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChangeWork = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWorkTime(event.target.value);
   };
 
+  const handleInputChangeInterval = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInterval(event.target.value);
+  };
+
   // Function to save the input value into localStorage
-  const saveWorkTime = () => {
+  const saveChanges = () => {
     localStorage.setItem('first_time', JSON.stringify(workTime));
+    localStorage.setItem('interval_count', JSON.stringify(interval));
   };
 
   return (
@@ -34,12 +47,18 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
         </button>
       </Link>
       <Link to="/">
-        <button onClick={saveWorkTime}>
+        <button onClick={saveChanges}>
           <div className={classes.save}>Save</div>
         </button>
       </Link>
       <div className={classes.rectangle172}></div>
-      <div className={classes._10}>10</div>
+      <input
+        type="text"
+        placeholder={interval}
+        className={classes._10}
+        value={interval}
+        onChange={handleInputChangeInterval}
+      />
       <div className={classes.rectangle23}></div>
       <div className={classes.rectangle24}></div>
       <div className={classes.rectangle25}></div>
@@ -50,10 +69,10 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
       <div className={classes.label}>Label</div>
       <input
         type="text"
-        placeholder="WorkTime"
+        placeholder={workTime}
         className={classes.workTime}
         value={workTime}
-        onChange={handleInputChange}
+        onChange={handleInputChangeWork}
       />
       <div className={classes.editWorkTime}>Edit Work Time</div>
       <div className={classes.rectangle18}></div>
