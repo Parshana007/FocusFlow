@@ -65,6 +65,14 @@
   align-items: end;
   flex-direction: column;
 }
+._10::placeholder {
+  color: #747474; /* Default placeholder text color */
+}
+
+._10.modified {
+  color: #ff9f09; /* Change text color when input differs from placeholder */
+}
+
 .rectangle23 {
   position: absolute;
   left: 4.8718%;
@@ -176,6 +184,15 @@
   align-items: end;
   flex-direction: column;
 }
+.workTime::placeholder {
+  color: #747474; /* Default placeholder text color */
+}
+
+/* Text color when input differs from placeholder */
+.workTime.modified {
+  color: #ff9f09; /* Change text color when input differs from placeholder */
+}
+
 .editWorkTime {
   color: #747474;
   font-size: 16px;

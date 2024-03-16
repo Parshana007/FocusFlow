@@ -12,6 +12,8 @@ interface Props {
 export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(props = {}) {
   // State to hold the value of the input field
   const [shortBreak, setShortBreak] = useState('');
+  const [placeholder, setPlaceholder] = useState('');
+  const [isModified, setIsModified] = useState(false);
 
   // useEffect to retrieve data from localStorage on component mount
   useEffect(() => {
@@ -22,6 +24,7 @@ export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(pr
   // Event handler to update the state when the input value changes
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShortBreak(event.target.value);
+    setIsModified(event.target.value !== placeholder);
   };
 
   // Function to save the input value into localStorage
@@ -84,7 +87,7 @@ export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(pr
       <input
         type="text"
         placeholder={shortBreak}
-        className={classes.shortBreak}
+        className={`${classes.shortBreak} ${isModified ? classes.modified : ''}`}
         value={shortBreak}
         onChange={handleInputChange}
       />
