@@ -83,7 +83,7 @@ export const EditShortBreakPage: FC<Props> = memo(function EditShortBreakPage(pr
       <div className={classes.label7}>Label</div>
       <input
         type="text"
-        placeholder="ShortBreak"
+        placeholder={shortBreak}
         className={classes.shortBreak}
         value={shortBreak}
         onChange={handleInputChange}

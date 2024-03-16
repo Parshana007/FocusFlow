@@ -30,12 +30,12 @@ export const EditFunctions: FC<Props> = memo(function EditFunctions(
       <Link to="/edit-work-time">
         <button>
           <div className={classes.workTime}>{firstTime}</div>
-          <div className={classes._30Min}>30 min</div>
+          <div className={classes._30Min}>22 min</div>
         </button>
       </Link>
       <Link to="/edit-short-break">
         <button>
-          <div className={classes._5Min}>5 min</div>
+          <div className={classes._5Min}>8 min</div>
           <div className={classes.breakTime}>{secondTime}</div>
         </button>
       </Link>

@@ -1,3 +1,4 @@
 # FocusFlow
 
-By Parshana Sekhon and Mio Nakagawa Class: CSC 484
+By Parshana Sekhon and Mio Nakagawa 
+Class: CSC 484
