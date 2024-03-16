@@ -17,7 +17,7 @@ interface Props {
 export const AppleHomeScreenWork: FC<Props> = memo(function AppleHomeScreen(
   props = {}
 ) {
-  const [timer, setTimer] = useState(0.2 * 60); // Initial time in seconds (22 minutes)
+  const [timer, setTimer] = useState(8 * 60); // Initial time in seconds (22 minutes)
   const [workTime, setWorkTime] = useState("");
   const [numIntervals, setNumIntervals] = useState(JSON.parse(
     localStorage.getItem("work_interval_counter") || "0"

@@ -14,7 +14,7 @@ interface Props {
 
 /* @figmaId 360:1218 */
 export const AppleHomeScreenRest: FC<Props> = memo(function AppleHomeScreen(props = {}) {
-  const [timer, setTimer] = useState(0.1 * 60); // Initial time in seconds (22 minutes)
+  const [timer, setTimer] = useState(22 * 60); // Initial time in seconds (22 minutes)
   const [breakTime, setBreakTime] = useState("");
   const [numIntervals, setNumIntervals] = useState(JSON.parse(
     localStorage.getItem("work_interval_counter") || "0"
