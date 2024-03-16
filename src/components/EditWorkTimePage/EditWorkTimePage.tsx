@@ -15,27 +15,42 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
   // State to hold the value of the input field
   const [workTime, setWorkTime] = useState("");
   const [interval, setInterval] = useState("");
+  const [placeholder1, setPlaceholder1] = useState('');
+  const [isModifiedWork, setIsModifiedWork] = useState(false);
+  const [placeholder2, setPlaceholder2] = useState('');
+  const [isModifiedInterval, setIsModifiedInterval] = useState(false);
+  const [intervalWorkCounter, setIntervalWorkCounter] = useState("");
 
   useEffect(() => {
-    const first = JSON.parse(localStorage.getItem('first_time') || '""');
-    const interval = JSON.parse(localStorage.getItem('interval_count') || '""');
+    const first = JSON.parse(localStorage.getItem("first_time") || '""');
+    const interval = JSON.parse(localStorage.getItem("interval_count") || '""');
     setWorkTime(first || "Work Time");
-    setInterval(interval || "10")
+    setInterval(interval || "10");
   }, []);
 
   // Event handler to update the state when the input value changes
-  const handleInputChangeWork = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChangeWork = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setWorkTime(event.target.value);
+    setIsModifiedWork(event.target.value !== placeholder1);
   };
 
-  const handleInputChangeInterval = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChangeInterval = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setInterval(event.target.value);
+    setIsModifiedInterval(event.target.value !== placeholder2);
   };
 
   // Function to save the input value into localStorage
   const saveChanges = () => {
-    localStorage.setItem('first_time', JSON.stringify(workTime));
-    localStorage.setItem('interval_count', JSON.stringify(interval));
+    localStorage.setItem("first_time", JSON.stringify(workTime));
+    localStorage.setItem("interval_count", JSON.stringify(interval));
+    localStorage.setItem(
+      "work_interval_counter",
+      JSON.stringify(parseInt(interval))
+    );
   };
 
   return (
@@ -55,7 +70,7 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
       <input
         type="text"
         placeholder={interval}
-        className={classes._10}
+        className={`${classes._10} ${isModifiedInterval ? classes.modified : ''}`}
         value={interval}
         onChange={handleInputChangeInterval}
       />
@@ -70,7 +85,7 @@ export const EditWorkTimePage: FC<Props> = memo(function EditWorkTimePage(
       <input
         type="text"
         placeholder={workTime}
-        className={classes.workTime}
+        className={`${classes.workTime} ${isModifiedWork ? classes.modified : ''}`}
         value={workTime}
         onChange={handleInputChangeWork}
       />
