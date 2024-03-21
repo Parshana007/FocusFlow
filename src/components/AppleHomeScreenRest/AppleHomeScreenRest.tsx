@@ -1,35 +1,36 @@
-import { memo, useEffect, useState, createContext, useContext } from 'react';
-import type { FC } from 'react';
+import { memo, useEffect, useState, createContext, useContext } from "react";
+import type { FC } from "react";
 import { useNavigate } from "react-router-dom"; // Import Link from react-router-dom
-import resets from '../_resets.module.css';
-import classes from './AppleHomeScreen.module.css';
-import { CountingTimer } from './CountingTimer/CountingTimer.js';
-import { Ellipse1Icon } from './Ellipse1Icon.js';
-import { Line3Icon } from './Line3Icon.js';
-import { Line4Icon } from './Line4Icon.js';
+import resets from "../_resets.module.css";
+import classes from "./AppleHomeScreen.module.css";
+import { CountingTimer } from "./CountingTimer/CountingTimer.js";
+import { Ellipse1Icon } from "./Ellipse1Icon.js";
+import { Line3Icon } from "./Line3Icon.js";
+import { Line4Icon } from "./Line4Icon.js";
 
 interface Props {
   className?: string;
 }
 
 /* @figmaId 360:1218 */
-export const AppleHomeScreenRest: FC<Props> = memo(function AppleHomeScreen(props = {}) {
-  const [timer, setTimer] = useState(22 * 60); // Initial time in seconds (22 minutes)
+export const AppleHomeScreenRest: FC<Props> = memo(function AppleHomeScreen(
+  props = {}
+) {
+  const [timer, setTimer] = useState(8 * 60); // Initial time in seconds (8 minutes)
   const [breakTime, setBreakTime] = useState("");
-  const [numIntervals, setNumIntervals] = useState(JSON.parse(
-    localStorage.getItem("work_interval_counter") || "0"
-  ));
+  const [numIntervals, setNumIntervals] = useState(
+    JSON.parse(localStorage.getItem("work_interval_counter") || "0")
+  );
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    const first = JSON.parse(localStorage.getItem('second_time') || '""');
+    const first = JSON.parse(localStorage.getItem("second_time") || '""');
     setBreakTime(first || "Break Time");
   }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimer(prevTimer => {
+      setTimer((prevTimer) => {
         if (prevTimer === 0) {
           clearInterval(intervalId);
           // You may perform additional actions here when the timer reaches 0
@@ -81,7 +82,11 @@ export const AppleHomeScreenRest: FC<Props> = memo(function AppleHomeScreen(prop
         }}
         text={{
           timer: <div className={classes.timer}>{breakTime}</div>,
-          _451: <div className={classes._451}>{`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`}</div>,
+          _451: (
+            <div className={classes._451}>{`${minutes}:${
+              seconds < 10 ? "0" : ""
+            }${seconds}`}</div>
+          ),
         }}
       />
       <div className={classes.rectangle27}></div>
